@@ -1,0 +1,19 @@
+version: '3'
+# docker run -p 4000 --name elixir_api-c elixir_api ash
+
+services:
+
+  elixir_api:
+    build: .
+    container_name: elixir_api
+    ports:
+      - "4000:4000"
+
+  mysql:
+    image: mysql:5.6.26
+    container_name: mysql
+    environment:
+     - MYSQL_ROOT_PASSWORD=root
+     - MYSQL_DATABASE=elixir_api
+    ports:
+      - "3307:3306"

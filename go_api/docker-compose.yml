@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+  go_api:
+    build:
+      context: .
+    container_name: go_api
+    ports:
+      - "8060:8060"
+    env_file:
+      - .env
+    restart: always
+
+  mongodb:
+    image: mongo:3.2.6
+    container_name: mongodb
+    expose:
+      - "27017"
+    restart: always
